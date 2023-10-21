@@ -1,27 +1,18 @@
-@media (min-width: 768px) {
-    .main {
-      display: grid;
-      grid-template-columns: 20rem 1fr;
-    }
+.card {
+  list-style: none;
+}
+
+.card__link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+
+  .card__image {
+    width: 50vw;
+    height: 50vh;
+    background-size: cover;
   }
 
-  .header {
-    position: relative;
-    border-bottom: solid 0.1875rem #14d9c4;
-    padding-bottom: 0.3125rem;
-    margin-bottom: 1.25rem;
+  .card__h2 {
   }
-
-  .header .header--logo {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  .loading_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 18rem;
-  }
+}
