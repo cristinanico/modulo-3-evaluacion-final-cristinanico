@@ -1,3 +1,20 @@
+.background {
+ 
+}
+
+.h1__title{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: right;
+  padding: 100px;
+  background-image: url(../images/popcorn.jpeg);
+  background-size: cover;
+}
+
+.list__title{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
 .card {
   list-style: none;
 }
@@ -6,13 +23,45 @@
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: solid #fce408 3px;
+  border-radius: 5%;
+  padding: 15px;
 
   .card__image {
-    width: 50vw;
-    height: 50vh;
-    background-size: cover;
+    width: 150px
   }
 
-  .card__h2 {
+  .card__h2{
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
   }
+
+  .card__p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+  }
+
+  .card__h3{
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+  }
+}
+
+.ul__container{
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.search {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

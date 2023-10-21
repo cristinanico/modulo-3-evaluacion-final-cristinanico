@@ -20,12 +20,16 @@ function App() {
     setSearchFilm(value);
   };
 
+  const filterCards = cards.filter((card) =>
+    card.movie.toLowerCase().includes(searchFilm)
+  );
+
   return (
-    <div className="page">
-      <header className="header">
-        <h1 className="header__title">Owen says WOW!</h1>
+    <div className="background">
+      <header>
+        <h1 className="h1__title">Owen says WOW! </h1>
       </header>
-      <main className="main">
+      <main>
         <h2 className="list__title">Pelis WOW!</h2>
         <Filters handleChange={handleChange} searchFilm={searchFilm} />
         <CardsList cards={cards} />

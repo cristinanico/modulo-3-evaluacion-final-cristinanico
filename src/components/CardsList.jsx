@@ -11,7 +11,7 @@ const CardsList = ({ cards }) => {
 
   return (
     <>
-      <ul>{renderCards}</ul>
+      <ul className='ul__container'>{renderCards}</ul>
     </>
   );
 };
