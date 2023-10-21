@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://beta.adalab.es/resources/stylesheets/all.css" />
+  <style>
+    @media (min-width: 768px) {
+      .main {
+        display: grid;
+        grid-template-columns: 20rem 1fr;
+      }
+    }
+
+    .header {
+      position: relative;
+      border-bottom: solid 0.1875rem #14d9c4;
+      padding-bottom: 0.3125rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .header .header--logo {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .loading_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 18rem;
+    }
+  </style>
+  <title>Linkedin</title>
+</head>
+
+<body>
+  <div className="page">
+    <header className="header">
+      <h1 className="header__title title--big">Linkedin</h1>
+      <img className="header--logo" src="https://raw.githubusercontent.com/Adalab/resources/master/images/adalab-logo-32x32.png"
+           alt="Adalab logo" />
+    </header>
+    <main className="main">
+      <form className="filters">
+        <h2 className="filters__title title--medium">Filtrar por...</h2>
+        <label className="form__label display-block" for="search_name">
+          Nombre:
+          <input className="form__input-text" type="text" name="search_name" id="search_name">
+        </label>
+        <label className="form__label display-block" for="search_city">
+          Pais:
+          <select className="form__input-text" name="search_city" id="search_city">
+            <option selected disabled value="">Escoge un pais</option>
+            <option value="España">España</option>
+            <option value="India">India</option>
+            <option value="Reino Unido">Reino Unido</option>
+            <option value="USA">USA</option>
+          </select>
+        </label>
+        <label>Región:</label>
+        <label className="form__label display-block" for="region-Murcia"><input type="checkbox" name="search_region" id="region-Murcia"
+            value="">Murcia</label>
+        <label className="form__label display-block" for="region-Bangalore"><input type="checkbox" name="search_region"
+            id="region-Bangalore" value="">Bangalore</label>
+        <label className="form__label display-block" for="region-Sheffield"><input type="checkbox" name="search_region"
+            id="region-Sheffield" value="">Sheffield</label>
+        <label className="form__label display-block" for="region-Newcastle"><input type="checkbox" name="search_region"
+            id="region-Newcastle" value="">Newcastle upon Tyne</label>
+        <label className="form__label display-block" for="region-Kharagpur"><input type="checkbox" name="search_region"
+            id="region-Kharagpur" value="">Kharagpur</label>
+
+      </form>
+      <section className="contacts">
+        <h2 className="contacts__title title--medium">Lista de contactos</h2>
+        <ul className="cards" style="display: none;">
+          <li className="card">
+            <a href="#">
+              <img className="card__img" src="https://randomuser.me/api/portraits/women/49.jpg"
+                alt="Foto de Francisco Korth" title="Foto de Francisco Korth" />
+              <h4 className="card__title">Rocío Vargas</h4>
+              <p className="card__description">Murcia / female</p>
+            </a>
+          </li>
+          <li className="card">
+            <a href="#">
+              <img className="card__img" src="https://randomuser.me/api/portraits/men/26.jpg" alt="Foto de Francisco Korth"
+                title="Foto de Francisco Korth" />
+              <h4 className="card__title">Aditya Keshri</h4>
+              <p className="card__description">Bangalore / male</p>
+            </a>
+          </li>
+          <li className="card">
+            <a href="#">
+              <img className="card__img" src="https://randomuser.me/api/portraits/women/65.jpg"
+                alt="Foto de Francisco Korth" title="Foto de Francisco Korth" />
+              <h4 className="card__title">Angela Garza</h4>
+              <p className="card__description">Sheffield / female</p>
+            </a>
+          </li>
+          <li className="card">
+            <a href="#">
+              <img className="card__img" src="https://randomuser.me/api/portraits/women/29.jpg"
+                alt="Foto de Francisco Korth" title="Foto de Francisco Korth" />
+              <h4 className="card__title">Vanessa Martinez</h4>
+              <p className="card__description">Newcastle upon Tyne / female</p>
+            </a>
+          </li>
+          <li className="card">
+            <a href="#">
+              <img className="card__img" src="https://randomuser.me/api/portraits/women/70.jpg"
+                alt="Foto de Francisco Korth" title="Foto de Francisco Korth" />
+              <h4 className="card__title">Shobha Dalvi</h4>
+              <p className="card__description">Kharagpur / female</p>
+            </a>
+          </li>
+        </ul>
+
+        <div className="loading_container">
+          <div className="loading"></div>
+        </div>
+      </section>
+    </main>
+
+    <div className="modal modal__hidden js-modal">
+      <div className="modal__dialog">
+        <div className="modal__content">
+          <header className="modal__header">
+            <h2 className="modal__title">Nombre Apellidos</h2>
+            <span className="modal__close icon fas fa-times js-modal-btn"></span>
+          </header>
+          <section>
+            <p>Región: Región</p>
+            <p>País: País</p>
+            <p>Género: Género</p>
+          </section>
+          <header className="modal__footer">
+            <p className="text">Otra información</p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(()=>{document.querySelector('.cards').style.display = ''; document.querySelector('.loading').style.display = 'none';}, 1000);
+
+    const modalWindow = document.querySelector('.js-modal');
+    document.querySelectorAll('.card a').forEach((link) => link.addEventListener('click', (ev) => { ev.preventDefault(); modalWindow.classNameList.toggle('modal__hidden') }));
+    document.querySelector('.js-modal-btn').addEventListener('click', () => { modalWindow.classNameList.add('modal__hidden'); });
+  </script>
+</body>
+
+</html>
