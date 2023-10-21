@@ -3,7 +3,7 @@ const FilmFilter = ({searchFilm, handleChange}) => {
     handleChange(event.target.value);
   };
   return (
-    <form className="form">
+    <fieldset className="form">
       <label htmlFor="search" className="search">Película 🎬</label>
       <input
         type="search"
@@ -12,7 +12,7 @@ const FilmFilter = ({searchFilm, handleChange}) => {
         value={searchFilm}
         onChange={handleInputSearch}
       />
-    </form>
+    </fieldset>
   );
 };
 
