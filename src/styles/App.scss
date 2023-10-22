@@ -23,9 +23,10 @@
   border: solid #fce408 3px;
   border-radius: 5%;
   padding: 15px;
+  align-items: center;
 
   .card__image {
-    width: 150px
+    width: 150px;
   }
 
   .card__h2{
@@ -68,4 +69,64 @@
   display: flex;
   justify-content: center;
   margin: 15px;
+}
+
+.detail__section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+  .detail__flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .detail__img{
+    width: 300px;
+    border: solid #fce408 5px;
+  }
+
+  .detail__h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 32px;
+  }
+
+  .detail__h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+  }
+
+  .detail__p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+  }
+
+  .detail__audio{
+    text-decoration: none;
+    background-color: #fce408;
+    padding: 15px;
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+  }
+}
+
+.back{
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  background-color: orange;
+  border-radius: 40px;
+  position: absolute;
+  right: 20px;
 }
