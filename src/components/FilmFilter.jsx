@@ -1,28 +1,19 @@
-import FilmFilter from './FilmFilter';
-import YearFilter from './YearFilter';
-
-const Filters = ({
-  searchFilm,
-  handleChange,
-  selectYear,
-  handleSelect,
-  years,
-}) => {
-  const handleForm = (event) => {
-    event.preventDefault();
+const FilmFilter = ({searchFilm, handleChange}) => {
+  const handleInputSearch = (event) => {
+    handleChange(event.target.value);
   };
   return (
-    <section>
-      <form onSubmit={handleForm}>
-        <FilmFilter searchFilm={searchFilm} handleChange={handleChange} />
-        <YearFilter
-          selectYear={selectYear}
-          handleSelect={handleSelect}
-          years={years}
-        />
-      </form>
-    </section>
+    <fieldset className="form">
+      <label htmlFor="search" className="search">Película 🎬</label>
+      <input
+        type="search"
+        name="search"
+        placeholder="Busca la peli"
+        value={searchFilm}
+        onChange={handleInputSearch}
+      />
+    </fieldset>
   );
 };
 
-export default Filters;
+export default FilmFilter;
