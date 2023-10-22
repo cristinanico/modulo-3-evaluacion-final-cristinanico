@@ -1,8 +1,11 @@
 import '../styles/App.scss';
 import { useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router';
 import CardsList from './CardsList';
 import getDataFromAPI from '../services/api';
 import Filters from './filters';
+import CardDetail from './CardDetail';
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -40,6 +43,12 @@ function App() {
     return uniquesArray;
   };
 
+  const { pathname } = useLocation();
+  const routeData = matchPath('/card/:id', pathname);
+  const cardId = routeData !== null ? routeData.params.id : '';
+
+  const cardData = cards.find((card) => (card.id === cardId));
+
   return (
     <div className="background">
       <header>
@@ -47,14 +56,32 @@ function App() {
       </header>
       <main>
         <h2 className="list__title">Pelis WOW!</h2>
-        <Filters
-          handleChange={handleChange}
-          searchFilm={searchFilm}
-          selectYear={selectYear}
-          handleSelect={handleSelect}
-          years={getYears()}
-        />
-        <CardsList cards={filterCards} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Filters
+                  handleChange={handleChange}
+                  searchFilm={searchFilm}
+                  selectYear={selectYear}
+                  handleSelect={handleSelect}
+                  years={getYears()}
+                />
+                <CardsList cards={filterCards} />
+              </>
+            }
+          />
+          <Route
+            path="/card/:id"
+            element={
+              <>
+                <CardDetail card={cardData} />
+                <Link to="/">Volver atrás</Link>
+              </>
+            }
+          />
+        </Routes>
       </main>
     </div>
   );

@@ -13,6 +13,7 @@ const getDataFromAPI = () => {
           movie: card.movie,
           quote: card.full_line,
           year: card.year,
+          audio: card.audio
         };
       });
       return cleanData;
