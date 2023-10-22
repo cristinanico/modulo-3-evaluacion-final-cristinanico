@@ -23,7 +23,7 @@ function App() {
   };
 
   const filterCards = cards
-    .filter((card) => card.movie.toLowerCase().includes(searchFilm))
+    .filter((card) => card.movie.toLowerCase().includes(searchFilm.toLocaleLowerCase()))
     .filter((CardItem) => {
       if (selectYear === '') {
         return true;
@@ -77,7 +77,7 @@ function App() {
             element={
               <>
                 <CardDetail card={cardData} />
-                <Link to="/">Volver atrás</Link>
+                <Link className='back' to="/">🔙 Volver atrás</Link>
               </>
             }
           />
