@@ -7,6 +7,8 @@ import getDataFromAPI from '../services/api';
 import Filters from './filters';
 import CardDetail from './CardDetail';
 
+//falta ordenar por abc y "No hay coincidencias"
+
 function App() {
   const [cards, setCards] = useState([]);
   const [searchFilm, setSearchFilm] = useState('');
