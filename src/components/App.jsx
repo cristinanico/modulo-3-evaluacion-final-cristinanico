@@ -6,22 +6,24 @@ import CardsList from './CardsList';
 import getDataFromAPI from '../services/api';
 import Filters from './filters';
 import CardDetail from './CardDetail';
-
-//falta ordenar por abc y "No hay coincidencias"
+import LocalStorage from '../services/localStorage';
 
 function App() {
-  const [cards, setCards] = useState([]);
-  const [searchFilm, setSearchFilm] = useState('');
+  const [cards, setCards] = useState(localStorage.get, []);
+  const [searchFilm, setSearchFilm] = useState(localStorage.get('search', ''));
   const [selectYear, setSelectYear] = useState('');
 
   useEffect(() => {
-    getDataFromAPI().then((cleanData) => {
-      setCards(cleanData);
-    });
-  }, []);
+    if (cards.length === 0) {
+      getDataFromAPI().then((cleanData) => {
+        setCards(cleanData);
+      });
+    }
+  }, [cards]);
 
   const handleChange = (value) => {
     setSearchFilm(value);
+    localStorage.set('search', value);
   };
 
   const filterCards = cards
