@@ -25,7 +25,9 @@ function App() {
   };
 
   const filterCards = cards
-    .filter((card) => card.movie.toLowerCase().includes(searchFilm.toLocaleLowerCase()))
+    .filter((card) =>
+      card.movie.toLowerCase().includes(searchFilm.toLocaleLowerCase())
+    )
     .filter((CardItem) => {
       if (selectYear === '') {
         return true;
@@ -49,7 +51,7 @@ function App() {
   const routeData = matchPath('/card/:id', pathname);
   const cardId = routeData !== null ? routeData.params.id : '';
 
-  const cardData = cards.find((card) => (card.id === cardId));
+  const cardData = cards.find((card) => card.id === cardId);
 
   return (
     <div className="background">
@@ -70,7 +72,7 @@ function App() {
                   handleSelect={handleSelect}
                   years={getYears()}
                 />
-                <CardsList cards={filterCards} />
+                <CardsList cards={filterCards} searchFilm={searchFilm} />
               </>
             }
           />
@@ -79,7 +81,9 @@ function App() {
             element={
               <>
                 <CardDetail card={cardData} />
-                <Link className='back' to="/">🔙 Volver atrás</Link>
+                <Link className="back" to="/">
+                  🔙 Volver atrás
+                </Link>
               </>
             }
           />

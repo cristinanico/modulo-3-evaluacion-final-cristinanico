@@ -2,7 +2,12 @@ import CardItem from './CardItem';
 import { Link } from 'react-router-dom';
 
 const CardsList = ({ cards }) => {
-  const renderCards = cards.map((card) => {
+
+  const abcFilms = [...cards].sort((a, b) =>
+  a.movie.localeCompare(b.movie)
+);
+
+  const renderCards = abcFilms.map((card) => {
     return (
       <Link key={card.id} to={'/card/' + card.id} className="card__link">
         <li className="card" key={card.id}>
