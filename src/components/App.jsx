@@ -17,7 +17,7 @@ function App() {
     if (cards.length === 0) {
       getDataFromAPI().then((cleanData) => {
         setCards(cleanData);
-        localStorage.set('cards', cleanData); //Guarda la lista en LS
+        localStorage.set('cards', cleanData);
       });
     }
   }, [cards]);
