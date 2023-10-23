@@ -16,6 +16,7 @@ const getDataFromAPI = () => {
           audio: card.audio
         };
       });
+      localStorage.setItem('cards', JSON.stringify(cleanData));
       return cleanData;
     });
 };

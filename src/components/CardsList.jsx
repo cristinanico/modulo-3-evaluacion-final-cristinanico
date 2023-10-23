@@ -2,10 +2,7 @@ import CardItem from './CardItem';
 import { Link } from 'react-router-dom';
 
 const CardsList = ({ cards }) => {
-
-  const abcFilms = [...cards].sort((a, b) =>
-  a.movie.localeCompare(b.movie)
-);
+  const abcFilms = [...cards].sort((a, b) => a.movie.localeCompare(b.movie));
 
   const renderCards = abcFilms.map((card) => {
     return (
@@ -19,7 +16,11 @@ const CardsList = ({ cards }) => {
 
   return (
     <>
-      <ul className="ul__container">{renderCards}</ul>
+      {cards.length > 0 ? (
+        <ul className="ul__container">{renderCards}</ul>
+      ) : (
+        <p className='try__again'>No hay ningun WOW para tu búsqueda. ¡Prueba otra vez!</p>
+      )}
     </>
   );
 };
