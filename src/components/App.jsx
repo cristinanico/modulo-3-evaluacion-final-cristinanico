@@ -6,10 +6,10 @@ import CardsList from './CardsList';
 import getDataFromAPI from '../services/api';
 import Filters from './filters';
 import CardDetail from './CardDetail';
-import LocalStorage from '../services/localStorage';
+import localStorage from '../services/localStorage';
 
 function App() {
-  const [cards, setCards] = useState(localStorage.get, []);
+  const [cards, setCards] = useState(localStorage.get('cards', []));
   const [searchFilm, setSearchFilm] = useState(localStorage.get('search', ''));
   const [selectYear, setSelectYear] = useState('');
 
@@ -17,6 +17,7 @@ function App() {
     if (cards.length === 0) {
       getDataFromAPI().then((cleanData) => {
         setCards(cleanData);
+        localStorage.set('cards', cleanData); //Guarda la lista en LS
       });
     }
   }, [cards]);
