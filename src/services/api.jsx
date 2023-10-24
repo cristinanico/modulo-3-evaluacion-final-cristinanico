@@ -13,7 +13,8 @@ const getDataFromAPI = () => {
           movie: card.movie,
           quote: card.full_line,
           year: card.year,
-          audio: card.audio
+          audio: card.audio,
+          director: card.director
         };
       });
       localStorage.setItem('cards', JSON.stringify(cleanData));
